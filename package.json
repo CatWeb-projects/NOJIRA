@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,22 @@
   "bugs": {
     "url": "https://github.com/CatWeb-projects/NOJIRA/issues"
   },
-  "homepage": "https://github.com/CatWeb-projects/NOJIRA#readme"
+  "homepage": "https://github.com/CatWeb-projects/NOJIRA#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.4",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.26.14",
+    "css-loader": "^5.1.1",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
+    "source-map-loader": "^2.0.1",
+    "twig-html-loader": "^0.1.8",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

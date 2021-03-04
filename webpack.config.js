@@ -35,11 +35,22 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude: /node_modules/,
         use: [
           "autoprefixer",
           "css-loader",
           "node-sass",
-          { loader: "sass-loader", options: { sourceMap: true } },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+              outputPath: "CSS/",
+              name: "style.css",
+              // path: path.join(__dirname, "CSS"),
+              // filename: file.replace(".scss"),
+              // template: path.resolve(__dirname, `CSS/${file}`),
+            },
+          },
         ],
       },
       {

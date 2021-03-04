@@ -2,15 +2,15 @@ const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-// const HWPConfig = [];
-// fs.readdirSync(path.resolve(__dirname, "../src/pages")).forEach((file) => {
-//   page = new HtmlWebpackPlugin({
-//     filename: file.replace(".twig", ".html"),
-//     template: path.resolve(__dirname, `../src/pages/${file}`),
-//     hash: true,
-//   });
-//   HWPConfig.push(page);
-// });
+const HWPConfig = [];
+fs.readdirSync(path.resolve(__dirname, "./TWIG/Pages")).forEach((file) => {
+  page = new HtmlWebpackPlugin({
+    filename: file.replace(".twig", ".html"),
+    template: path.resolve(__dirname, `./TWIG/Pages/${file}`),
+    hash: true,
+  });
+  HWPConfig.push(page);
+});
 
 module.exports = {
   mode: "development",
@@ -54,5 +54,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  watch: true,
+  plugins: [...HWPConfig],
 };

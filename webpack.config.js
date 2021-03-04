@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // const HWPConfig = [];
 // fs.readdirSync(path.resolve(__dirname, "../src/pages")).forEach((file) => {
@@ -13,6 +14,7 @@ const fs = require("fs");
 
 module.exports = {
   mode: "development",
+  devtool: "source-map",
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "index.bundle.js",
@@ -20,6 +22,7 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: true,
+    open: true,
   },
   module: {
     rules: [
@@ -47,5 +50,6 @@ module.exports = {
       },
     ],
   },
-  // plugins: [...HWPConfig],
+  watch: true,
+  plugins: [new HtmlWebpackPlugin()],
 };

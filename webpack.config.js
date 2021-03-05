@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const HWPConfig = [];
 fs.readdirSync(path.resolve(__dirname, "./TWIG/Pages")).forEach((file) => {
@@ -12,15 +13,25 @@ fs.readdirSync(path.resolve(__dirname, "./TWIG/Pages")).forEach((file) => {
   HWPConfig.push(page);
 });
 
+const CssConfig = [];
+fs.readdirSync(path.resolve(__dirname, "./SCSS")).forEach((file) => {
+  page = new MiniCssExtractPlugin({
+    filename: "css/[name].css",
+    chunkFilename: "css/[id].css",
+  });
+  CssConfig.push(page);
+});
+
 module.exports = {
   mode: "development",
   devtool: "source-map",
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index.bundle.js",
+    filename: "index.js",
   },
   devServer: {
     port: 3000,
+    watchContentBase: true,
     hot: true,
     open: true,
   },
@@ -35,22 +46,22 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         use: [
-          "autoprefixer",
+          MiniCssExtractPlugin.loader,
           "css-loader",
-          "node-sass",
           {
             loader: "sass-loader",
             options: {
               sourceMap: true,
-              outputPath: "CSS/",
-              name: "style.css",
-              // path: path.join(__dirname, "CSS"),
+              // outputPath: "./CSS",
+              // name: "[name].css",
+              // path: path.join(__dirname, "./CSS"),
               // filename: file.replace(".scss"),
-              // template: path.resolve(__dirname, `CSS/${file}`),
+              // template: path.resolve(__dirname, `./CSS/${file}`),
             },
           },
+          "autoprefixer",
+          "node-sass",
         ],
       },
       {
@@ -65,6 +76,5 @@ module.exports = {
       },
     ],
   },
-  watch: true,
-  plugins: [...HWPConfig],
+  plugins: [...HWPConfig, ...CssConfig],
 };

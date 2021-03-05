@@ -14,13 +14,12 @@ fs.readdirSync(path.resolve(__dirname, "./TWIG/Pages")).forEach((file) => {
 });
 
 const CssConfig = [];
-fs.readdirSync(path.resolve(__dirname, "./SCSS")).forEach((file) => {
-  page = new MiniCssExtractPlugin({
-    filename: "css/[name].css",
-    chunkFilename: "css/[id].css",
-  });
-  CssConfig.push(page);
+fs.readdirSync(path.resolve(__dirname, "./SCSS"));
+page = new MiniCssExtractPlugin({
+  filename: "css/[name].css",
+  chunkFilename: "css/[id].css",
 });
+CssConfig.push(page);
 
 module.exports = {
   mode: "development",
@@ -38,14 +37,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
@@ -53,11 +52,6 @@ module.exports = {
             loader: "sass-loader",
             options: {
               sourceMap: true,
-              // outputPath: "./CSS",
-              // name: "[name].css",
-              // path: path.join(__dirname, "./CSS"),
-              // filename: file.replace(".scss"),
-              // template: path.resolve(__dirname, `./CSS/${file}`),
             },
           },
           "autoprefixer",

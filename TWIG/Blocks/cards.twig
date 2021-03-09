@@ -1,6 +1,6 @@
-{# {% extends 'index.html' %} #}
+{% extends 'index.twig' %}
 
-{% set card %}
+{% block content %}
 
 <div class="cards-main">
   {% for card in cards %}
@@ -15,4 +15,4 @@
   {% endfor %}
 </div
 
-{% endset %}
+{% endblock %}

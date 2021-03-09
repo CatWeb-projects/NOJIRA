@@ -13,17 +13,8 @@ fs.readdirSync(path.resolve(__dirname, "./TWIG/Pages")).forEach((file) => {
   HWPConfig.push(page);
 });
 
-const CssConfig = [];
-fs.readdirSync(path.resolve(__dirname, "./SCSS"));
-page = new MiniCssExtractPlugin({
-  filename: "css/[name].css",
-  chunkFilename: "css/[id].css",
-});
-CssConfig.push(page);
-
 module.exports = {
-  mode: "development",
-  devtool: "source-map",
+  entry: path.resolve(__dirname, "index.js"),
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "index.js",
@@ -54,15 +45,19 @@ module.exports = {
               sourceMap: true,
             },
           },
-          "autoprefixer",
-          "node-sass",
         ],
       },
       {
         test: /\.twig$/,
-        use: {
-          loader: "twig-html-loader",
-        },
+        use: [
+          "raw-loader",
+          {
+            loader: "twig-html-loader",
+            options: {
+              data: {},
+            },
+          },
+        ],
       },
       {
         test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
@@ -70,5 +65,11 @@ module.exports = {
       },
     ],
   },
-  plugins: [...HWPConfig, ...CssConfig],
+  plugins: [
+    ...HWPConfig,
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
+  ],
 };

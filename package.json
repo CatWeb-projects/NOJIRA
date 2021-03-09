@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w",
+    "build": "webpack",
     "start": "webpack serve --config ./webpack.config.js --mode development"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "html-webpack-plugin": "^5.2.0",
     "mini-css-extract-plugin": "^1.3.9",
     "node-sass": "^5.0.0",
+    "raw-loader": "^4.0.2",
     "sass-loader": "^11.0.1",
     "twig-html-loader": "^0.1.8",
     "webpack": "^5.24.2",

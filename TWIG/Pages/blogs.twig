@@ -51,17 +51,17 @@
 {% block content %}
 <div class="page-title">Blogs</div>
 <div class="cards-main">
-	{% for blog in blogs %}
-		<div class="card">
-			<div class="type">{{ blog.type }}</div>
-			<div class="img">
-				<img src={{ blog.img}} alt={{blog.author}}>
-			</div>
-			<div class="title">{{ blog.title }}</div>
-			<div class="description">{{ blog.description }}</div>
-			<div class="author">
-				<a href={{ blog.link}}>{{ blog.author }}</a>
-			</div>
-		</div>
-	{% endfor %}
+  {% for blog in blogs %}
+    <div class="card">
+      <div class="type">{{ blog.type }}</div>
+      <div class="img">
+        <img src={{ blog.img}} alt={{blog.author}}>
+      </div>
+      <div class="title">{{ blog.title }}</div>
+      <div class="description">{{ blog.description }}</div>
+      <div class="author">
+        <a href={{ blog.link}}>{{ blog.author }}</a>
+      </div>
+    </div>
+  {% endfor %}
 </div {% endblock %}

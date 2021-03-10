@@ -1,4 +1,4 @@
-{% extends 'index.twig' %}
+{% extends '../layouts/layout.twig' %}
 
 {% set blogs = [
   {
@@ -60,7 +60,7 @@
 			<div class="title">{{ blog.title }}</div>
 			<div class="description">{{ blog.description }}</div>
 			<div class="author">
-				<a href={{blog.link}}>{{ blog.author }}</a>
+				<a href={{ blog.link}}>{{ blog.author }}</a>
 			</div>
 		</div>
 	{% endfor %}

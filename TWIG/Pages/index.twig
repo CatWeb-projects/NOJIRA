@@ -1,5 +1,13 @@
 {% extends '../layouts/layout.twig' %}
 
-{% block main %}
-<div>this is index component</div
+{% block header %}
+	custom header for index
+{% endblock %}
+
+{% block content %}
+	{% block articles %}{% endblock %}
+{% endblock %}
+
+{% block footer %}
+	custom footer for index
 {% endblock %}

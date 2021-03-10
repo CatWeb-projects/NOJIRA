@@ -8,7 +8,13 @@
 	</head>
 	<body>
 		<header>
-			{% block header %}{% endblock %}
+			{% block header %}
+				<div class="menu">
+					<a href="/">Main</a>
+					<a href="/articles.html">Articles</a>
+					<a href="/blogs.html">Blogs</a>
+				</div>
+			{% endblock %}
 		</header>
 		<main>
 			{% block content %}{% endblock %}
@@ -17,4 +23,4 @@
 			{% block footer %}{% endblock %}
 		</footer>
 	</body>
-</html>
+</html></body></html>

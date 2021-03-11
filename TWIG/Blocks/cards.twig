@@ -1,7 +1,5 @@
 {% extends '../layouts/layout.twig' %}
 
-{% block content %}
-
 <div class="cards-main">
   {% for card in cards %}
     <div class="card">
@@ -13,4 +11,3 @@
       <div class="description">{{ card.author }}</div>
     </div>
   {% endfor %}
-</div {% endblock %}

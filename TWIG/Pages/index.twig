@@ -1,18 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Document</title>
-</head>
-<body>
-{% set a = 'Tudor' %}
-    <div class="main-container">
-        <div>{{a}}</div>
-        <div>Center</div>
-        <div>Right Side</div>
-     </div>
-</body>
-</html>
+{% extends '../layouts/layout.twig' %}
+
+{% block content %}
+  <div class="page-title">Main Page</div>
+  <div class="cards-main">
+    {% for article in articles|slice(0, 1) %}
+      {% include '../blocks/card.twig' with { 
+        title: article.title, 
+        description: article.description,
+        type: article.type,
+        img: article.img,
+        author: article.author,
+        link: article.link,
+      } only %}
+    {% endfor %}
+
+    {% for blog in blogs|slice(2, 1) %}
+      {% include '../blocks/card.twig' with { 
+        title: blog.title, 
+        description: blog.description,
+        type: blog.type,
+        img: blog.img,
+        author: blog.author,
+        link: blog.link,
+      } only %}
+    {% endfor %}
+  </div>
+{% endblock %}

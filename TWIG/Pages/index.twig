@@ -11,7 +11,7 @@
         img: article.img,
         author: article.author,
         link: article.link,
-        } only %}
+      } only %}
     {% endfor %}
 
     {% for blog in blogs|slice(2, 1) %}
@@ -22,7 +22,7 @@
         img: blog.img,
         author: blog.author,
         link: blog.link,
-        } only %}
+      } only %}
     {% endfor %}
   </div>
 {% endblock %}

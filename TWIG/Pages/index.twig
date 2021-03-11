@@ -1,33 +1,34 @@
 {% extends '../layouts/layout.twig' %}
 
 {% block content %}
-<div class="page-title">Main Page</div>
-<div class="cards-main">
-  {% for article in articles|slice(0, 1) %}
-    <div class="card">
-      <div class="type">{{ article.type }}</div>
-      <div class="img">
-        <img src={{ article.img}} alt={{article.author}}>
+  <div class="page-title">Main Page</div>
+  <div class="cards-main">
+    {% for article in articles|slice(0, 1) %}
+      <div class="card">
+        <div class="type">{{ article.type }}</div>
+        <div class="img">
+          <img src={{ article.img }} alt={{ article.author }}>
+        </div>
+        <div class="title">{{ article.title }}</div>
+        <div class="description">{{ article.description }}</div>
+        <div class="author">
+          <a href={{ article.link }}>{{ article.author }}</a>
+        </div>
       </div>
-      <div class="title">{{ article.title }}</div>
-      <div class="description">{{ article.description }}</div>
-      <div class="author">
-        <a href={{ article.link}}>{{ article.author }}</a>
-      </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
 
-  {% for blog in blogs|slice(2, 1) %}
-    <div class="card">
-      <div class="type">{{ blog.type }}</div>
-      <div class="img">
-        <img src={{ blog.img}} alt={{blog.author}}>
+    {% for blog in blogs|slice(2, 1) %}
+      <div class="card">
+        <div class="type">{{ blog.type }}</div>
+        <div class="img">
+          <img src={{ blog.img }} alt={{ blog.author }}>
+        </div>
+        <div class="title">{{ blog.title }}</div>
+        <div class="description">{{ blog.description }}</div>
+        <div class="author">
+          <a href={{ blog.link }}>{{ blog.author }}</a>
+        </div>
       </div>
-      <div class="title">{{ blog.title }}</div>
-      <div class="description">{{ blog.description }}</div>
-      <div class="author">
-        <a href={{ blog.link}}>{{ blog.author }}</a>
-      </div>
-    </div>
-  {% endfor %}
-</div {% endblock %}
+    {% endfor %}
+  </div>
+{% endblock %}

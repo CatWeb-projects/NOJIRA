@@ -49,19 +49,20 @@
 ] %}
 
 {% block content %}
-<div class="page-title">Articles</div>
-<div class="cards-main">
-  {% for article in articles %}
-    <div class="card">
-      <div class="type">{{ article.type }}</div>
-      <div class="img">
-        <img src={{ article.img}} alt={{article.author}}>
+  <div class="page-title">Articles</div>
+  <div class="cards-main">
+    {% for article in articles %}
+      <div class="card">
+        <div class="type">{{ article.type }}</div>
+        <div class="img">
+          <img src={{ article.img }} alt={{ article.author }}>
+        </div>
+        <div class="title">{{ article.title }}</div>
+        <div class="description">{{ article.description }}</div>
+        <div class="author">
+          <a href={{ article.link }}>{{ article.author }}</a>
+        </div>
       </div>
-      <div class="title">{{ article.title }}</div>
-      <div class="description">{{ article.description }}</div>
-      <div class="author">
-        <a href={{ article.link}}>{{ article.author }}</a>
-      </div>
-    </div>
-  {% endfor %}
-</div {% endblock %}
+    {% endfor %}
+  </div>
+{% endblock %}

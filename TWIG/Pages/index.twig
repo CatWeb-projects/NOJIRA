@@ -4,31 +4,25 @@
   <div class="page-title">Main Page</div>
   <div class="cards-main">
     {% for article in articles|slice(0, 1) %}
-      <div class="card">
-        <div class="type">{{ article.type }}</div>
-        <div class="img">
-          <img src={{ article.img }} alt={{ article.author }}>
-        </div>
-        <div class="title">{{ article.title }}</div>
-        <div class="description">{{ article.description }}</div>
-        <div class="author">
-          <a href={{ article.link }}>{{ article.author }}</a>
-        </div>
-      </div>
+      {% include '../blocks/card.twig' with { 
+        title: article.title, 
+        description: article.description,
+        type: article.type,
+        img: article.img,
+        author: article.author,
+        link: article.link,
+        } only %}
     {% endfor %}
 
     {% for blog in blogs|slice(2, 1) %}
-      <div class="card">
-        <div class="type">{{ blog.type }}</div>
-        <div class="img">
-          <img src={{ blog.img }} alt={{ blog.author }}>
-        </div>
-        <div class="title">{{ blog.title }}</div>
-        <div class="description">{{ blog.description }}</div>
-        <div class="author">
-          <a href={{ blog.link }}>{{ blog.author }}</a>
-        </div>
-      </div>
+      {% include '../blocks/card.twig' with { 
+        title: blog.title, 
+        description: blog.description,
+        type: blog.type,
+        img: blog.img,
+        author: blog.author,
+        link: blog.link,
+        } only %}
     {% endfor %}
   </div>
 {% endblock %}

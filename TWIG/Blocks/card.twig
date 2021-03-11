@@ -1,10 +1,11 @@
-{% extends '../layouts/layout.twig' %}
-
 <div class="card">
-  <div class="type">{{ card.type }}</div>
+  <div class="type">{{ type }}</div>
   <div class="img">
-    <img src={{ card.img }} alt={{ card.title }}>
+    <img src={{ img }} alt={{ author }}>
   </div>
-  <div class="description">{{ card.description }}</div>
-  <div class="description">{{ card.author }}</div>
+  <div class="title">{{ title }}</div>
+  <div class="description">{{ description }}</div>
+  <div class="author">
+    <a href={{ link }}>{{ author }}</a>
+  </div>
 </div>

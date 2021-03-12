@@ -1,0 +1,12 @@
+<div class="cards articles">
+  {% for article in articles %}
+    {% include 'card.twig' with { 
+        title: article.title, 
+        description: article.description,
+        type: article.type,
+        img: article.img,
+        author: article.author,
+        link: article.link,
+      } only %}
+  {% endfor %}
+</div>

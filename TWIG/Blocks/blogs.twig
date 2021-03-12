@@ -1,0 +1,12 @@
+<div class="cards blogs">
+  {% for blog in blogs %}
+    {% include 'card.twig' with { 
+        title: blog.title, 
+        description: blog.description,
+        type: blog.type,
+        img: blog.img,
+        author: blog.author,
+        link: blog.link,
+      } only %}
+  {% endfor %}
+</div>

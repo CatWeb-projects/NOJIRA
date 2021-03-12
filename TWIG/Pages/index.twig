@@ -1,28 +1,33 @@
 {% extends '../layouts/layout.twig' %}
 
+{% set articles = [
+  {
+    id: 1,
+    title: 'Title 1',
+    description: 'Description 1',
+    img: 'https://i.pinimg.com/originals/f6/80/6b/f6806bfc76499939bbce9efa6360bcce.jpg',
+    link: 'https://www.example-1.com',
+    author: 'author 1',
+    type: 'Lecture'
+  }
+] %}
+
+{% set blogs = [
+  {
+    id: 3,
+    title: 'Title 3',
+    description: 'Description 3',
+    img: 'https://www.wallpapertip.com/wmimgs/0-4299_best-nature-wallpapers-in-full-hd-for-desktop.jpg',
+    link: 'https://www.example-3.com',
+    author: 'author 3',
+    type: 'Psychology'
+  }
+] %}
+
 {% block content %}
   <div class="page-title">Main Page</div>
   <div class="cards-main">
-    {% for article in articles|slice(0, 1) %}
-      {% include '../blocks/card.twig' with { 
-        title: article.title, 
-        description: article.description,
-        type: article.type,
-        img: article.img,
-        author: article.author,
-        link: article.link,
-      } only %}
-    {% endfor %}
-
-    {% for blog in blogs|slice(2, 1) %}
-      {% include '../blocks/card.twig' with { 
-        title: blog.title, 
-        description: blog.description,
-        type: blog.type,
-        img: blog.img,
-        author: blog.author,
-        link: blog.link,
-      } only %}
-    {% endfor %}
+    {% include "../blocks/articles.twig" with { articles: articles } only %}
+    {% include "../blocks/blogs.twig" with { blogs: blogs } only %}
   </div>
 {% endblock %}

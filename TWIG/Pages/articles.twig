@@ -50,16 +50,5 @@
 
 {% block content %}
   <div class="page-title">Articles</div>
-  <div class="cards-main">
-    {% for article in articles %}
-      {% include '../blocks/card.twig' with { 
-        title: article.title, 
-        description: article.description,
-        type: article.type,
-        img: article.img,
-        author: article.author,
-        link: article.link,
-      } only %}
-    {% endfor %}
-  </div>
+  {% include "../blocks/articles.twig" %}
 {% endblock %}
